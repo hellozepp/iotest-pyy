@@ -6,6 +6,9 @@ python_to_json = json.dumps(test,ensure_ascii=False)
 print(python_to_json)
 print(type(python_to_json))
 
+print('+++++++++++++++++++++++++++++++')
+print("len:",len(python_to_json.encode('UTF-8')))
+
 json_to_python = json.loads(python_to_json)
 print(type(json_to_python))
 print(json_to_python['username'])

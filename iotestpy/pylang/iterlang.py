@@ -1,7 +1,7 @@
 #coding=utf-8
 import random
 
-mylist=[1,2,3,4,5]
+mylist=[2,2,3,4,5]
 
 for i in mylist:
     print(i,end=" ")

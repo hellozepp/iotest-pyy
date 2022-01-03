@@ -15,8 +15,8 @@ def os_demo():
         stats = info.stat()
         print(">>> 访问时间: {}, 修改时间: {}, 模式修改时间: {}, 大小: {}".
               format(stats.st_atime, stats.st_ctime, stats.st_mtime, stats.st_size))
-
-
+os_demo()
+print("=============================================================================================")
 import signal
 
 

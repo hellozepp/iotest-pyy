@@ -87,7 +87,7 @@ print(list)
 print("字符串转数字列表")
 str = "6,148,72,35,0,33.6,0.627,50,1"
 str = eval("[" + str + "]")
-type(str)
+print(type(str))
 print(str)
 #格式化字符串
 string = "Hello\tWill\n"

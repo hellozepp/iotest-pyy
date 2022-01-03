@@ -2,19 +2,16 @@
 #流程控制-----"if" 表达式
 
 
-a=10
-b=20
-echo '[ $a == $b ]:'[ $a == $b ]
-echo '[ $a -gt $b ]:'[ $a -gt $b ]
-if [ $a == $b ]
+a="hello a"
+b="hello b"
+#echo '[ $a = "a" ]:'[ $a = "a" ] #[: too many arguments  [ $a = "a" ]:[ hello a = a ]
+echo '[ $a = "a" ]:'
+if [[ $a == $b ]] #$a会加引号
     then
        echo "a is equal to b"
-    elif [ $a -gt $b ]
+    elif [[ $a != $b ]]
     then
        echo "a is greater than b"
-    elif [ $a -lt $b ]
-    then
-       echo "a is less than b"
     else
        echo "None of the condition met"
 fi
@@ -94,6 +91,12 @@ echo string #string
 echo $? #
 [ string != string ]
 echo $?
+
+if [[ -n ${MLSQL_CONSOLE_TAG} ]]; then
+    echo "-n 如果STRING的长度非零则为真"
+else
+  echo "[else] -n 如果STRING的长度非零则为真"
+fi;
 
 echo "+++++++++++++++++++++++++++++++++++++"
 #测试数值

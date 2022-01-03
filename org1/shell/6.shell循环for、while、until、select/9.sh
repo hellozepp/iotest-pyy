@@ -45,7 +45,7 @@ do
 done 
 
 #=================================================
-for((integer = 1; integer <= 5; integer++))  
+for(( integer = 1; integer <= 5; integer++ ))   # 一定要有空格
 do  
     echo "$integer"  
 done 
@@ -59,4 +59,13 @@ do
 done  
   
 echo "sum=$sum" 
+
+echo "#================================================="
+for env in SPARK_HOME ; do
+  if [ -z "${!env}" ]; then
+    echo "$env must be set to run this script"
+    exit 1
+  else echo ${!env}
+  fi
+done
 

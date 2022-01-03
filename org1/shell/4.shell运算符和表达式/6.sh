@@ -50,15 +50,16 @@ echo $var
 #赋值运算符(=、+=、-=、*=、/=、%=、&=、^=、|=、<<=、>>=)
 
 #表达式
-echo "#$[]：可以接受不同基数的数字的表达式"
+echo "#$[]：可以接受不同基数的数字的表达式" # #0：可以接受不同基数的数字的表达式
 echo $[10+1] #（输出：11）
 echo "$[2+3],$HOME" #（输出：5,/root）
-echo $[2<<3],$[8>>1] #（输出：16,4） 
+echo $[2<<3],$[8>>1] #（输出：16,4）
 echo $[2>3],$[3>2] #（输出：0,1 表达式为false时输出0，为true时输出1）
 
 #字符表达式
-#字符表达式：直接书写，采用单引号，双引号引起来。 
-echo " $HOME，That is your root directory." 
-echo ' $HOME，That is your root directory. '
+#字符表达式：直接书写，采用单引号，双引号引起来。
+var=3
+echo " $HOME${var}，That is your root directory."
+echo ' ${HOME}${var}，That is your root directory. '
 
 
