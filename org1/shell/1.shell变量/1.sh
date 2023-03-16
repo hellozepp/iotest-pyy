@@ -73,3 +73,20 @@ echo '清除本地变量'
 unset var
 echo $var
 
+#=======================================
+echo '间接扩张'
+
+NAME="VARIABLE"
+VARIABLE=42
+echo ${!NAME}
+#42
+
+f1() {
+local var="$1"
+echo "${!var}"
+}
+
+f1 1  #--结果 1，相当于echo "${1}"
+f1 2 b #--结果 b, 相当于echo "${2}"
+
+

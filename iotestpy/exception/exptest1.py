@@ -37,7 +37,8 @@ finally:
 print("==================2=======================")
 
 class Res:
-    def __init__(self,name):
+    name: int = "xxx"
+    def __init__(self, name):
         self.name=name
 
     def __enter__(self):
@@ -51,6 +52,8 @@ class Res:
 try:
     with Res("withtest") as res:
         print(res.name)
+        # TODO 结构体中的res不是self中的res
+        print(Res.name)
         raise MyException("错了错了错了")
 except Exception:
     print("错了")

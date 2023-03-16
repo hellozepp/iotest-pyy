@@ -106,6 +106,7 @@ def fun():
     return lambda :print("hello")
 fun()()
 
+print("===========================11=========================")
 """ 
 三种编译环境 cpython pypy cson jPython
 pypy jit的编译
