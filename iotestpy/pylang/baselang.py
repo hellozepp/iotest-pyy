@@ -57,5 +57,12 @@ print(U"我".encode("utf-8"))#b'\xe6\x88\x91'
 
 print(b"abc".decode("utf-8"))#byte new String()
 
+s = "'example'\'_string'"
+
+# 使用strip方法移除两边的单引号
+cleaned_s = s.strip("'")
+
+print(cleaned_s)  # 输出: example_string
+
 
 sys.exit(100)

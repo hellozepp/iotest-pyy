@@ -1,22 +1,33 @@
 # 就是为了用的时候方便好记。
 import simplejson as json
 
+
 class a:
     def __init__(self):
         pass
+
+
 import sys
+
 sys.stdout.write(type(a))
+
+
 # isinstance()可以告诉我们，一个对象是否是某种类型（包括继承关系）。
 class A():
     pass
+
+
 class B(A):
     pass
+
+
 class C(B):
     pass
 
-a=A()
-b=B()
-c=C()
+
+a = A()
+b = B()
+c = C()
 
 print(isinstance(c, C))
 print(isinstance(c, B))
@@ -27,33 +38,45 @@ print(isinstance(b, C))
 print(dir('ABC'))
 
 
-
 class MyObject:
-    z=100
+    z = 100
+
     def __len1__(self1):
         return 100
+
     def x(self1):
         print("this is x")
 
+
 obj = MyObject()
 print(len(obj))
-if(hasattr(obj, 'x')): #有木有属性'x'
+if (hasattr(obj, 'x')):  # 有木有属性'x'
     obj.x()
     if (hasattr(obj, 'z')):  # 有木有属性'z'
-        print("有木有属性'z'",obj.z)
+        print("有木有属性'z'", obj.z)
 print(getattr(obj, 'z', 'N/A'))
 print(getattr(obj, 'y', 404))
+
 
 class Student(object):
     name = 'Student'
 
-s= Student()
+
+s = Student()
 s.name = 'Michael'
-print(s.name) # 由于实例属性优先级比类属性高，因此，它会屏蔽掉类的name属性
+print(s.name)  # 由于实例属性优先级比类属性高，因此，它会屏蔽掉类的name属性
 print(Student.name)
 del s.name
 print(s.name)
 # 导入模块时，是按照sys.path变量的值搜索模块，sys.path的值是包含每一个独立路径的列表，
 # 包含当前目录、python安装目录、PYTHONPATH环境变量，搜索顺序按照路径在列表中的顺序（一般当前目录优先级最高）
 import sys
+
 print(sys.path)
+
+# type() 与 isinstance()区别：
+# type()不会认为子类是一种父类类型，不考虑继承关系。
+isinstance(A(), A)  # returns True
+print("type(A()) == A :" + str(type(A()) == A))  # returns True
+isinstance(B(), A)  # returns True
+print(type(B()) == A)  # returns False

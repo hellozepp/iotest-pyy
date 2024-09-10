@@ -1,8 +1,8 @@
-#coding= utf-8
+# coding= utf-8
 
 
-#规定 " / "就表示 浮点数除法，返回浮点结果;" // "表示整数除法。
-#Python算术运算符操作
+# 规定 " / "就表示 浮点数除法，返回浮点结果;" // "表示整数除法。
+# Python算术运算符操作
 print("Python算术运算符操作")
 '''
 +	加 - 两个对象相加	a + b 输出结果 30
@@ -13,17 +13,16 @@ print("Python算术运算符操作")
 **	幂 - 返回x的y次幂	a**b 为10的20次方， 输出结果 100000000000000000000
 //	取整除 - 返回商的整数部分	9//2 输出结果 4 , 9.0//2.0 输出结果 4.0
 '''
-print(9**2)
-print(9/2)
-print(9%2)
-print(9//2)
-print("5,",9.6/3.2)
-print("6,",9.6%3.2)#X
-print("7,",9.6//3.2) #? bug
-print("8,",10//5)
-print("9,",15.9//5.3)
-print("10,",4.5//5) #0.0
-
+print(9 ** 2)
+print(9 / 2)
+print(9 % 2)
+print(9 // 2)
+print("5,", 9.6 / 3.2)
+print("6,", 9.6 % 3.2)  # X
+print("7,", 9.6 // 3.2)  # ? bug
+print("8,", 10 // 5)
+print("9,", 15.9 // 5.3)
+print("10,", 4.5 // 5)  # 0.0
 
 a = 21
 b = 10
@@ -47,12 +46,12 @@ print("5 - c 的值为：", c)
 # 修改变量 a 、b 、c
 a = 2
 b = 3
-c = a**b
+c = a ** b
 print("6 - c 的值为：", c)
 
 a = 10
 b = 5
-c = a//b
+c = a // b
 print("7 - c 的值为：", c)
 
 print("=========比较运算符===========")
@@ -79,41 +78,44 @@ b = 20
 # python 中的and从左到右计算表达式，若所有值均为真，则返回最后一个值，若存在假，返回第一个假值。
 #
 # or也是从左到有计算表达式，返回第一个为真的值。
-if ( a and b ):
-   print("1 - 变量 a 和 b 都为 true",a and b)
+if (a and b):
+    print("1 - 变量 a 和 b 都为 true", a and b)
 else:
-   print("1 - 变量 a 和 b 有一个不为 true",a and b)#0
+    print("1 - 变量 a 和 b 有一个不为 true", a and b)  # 0
 
-if ( a or b ):
-   print("2 - 变量 a 和 b 都为 true，或其中一个变量为 true",a or b)#20
+if (a or b):
+    print("2 - 变量 a 和 b 都为 true，或其中一个变量为 true", a or b)  # 20
 else:
-   print("2 - 变量 a 和 b 都不为 true",a or b)
+    print("2 - 变量 a 和 b 都不为 true", a or b)
 
 # 修改变量 a 的值
 a = 20
-if ( a and b ):
-   print("3 - 变量 a 和 b 都为 true",a and b )
+if (a and b):
+    print("3 - 变量 a 和 b 都为 true", a and b)
 else:
-   print("3 - 变量 a 和 b 有一个不为 true")
+    print("3 - 变量 a 和 b 有一个不为 true")
 
-if ( a or b ):
-   print("4 - 变量 a 和 b 都为 true，或其中一个变量为 true")
+if (a or b):
+    print("4 - 变量 a 和 b 都为 true，或其中一个变量为 true")
 else:
-   print("4 - 变量 a 和 b 都不为 true")
+    print("4 - 变量 a 和 b 都不为 true")
 
-if not( a and b ):
-   print("5 - 变量 a 和 b 都为 false，或其中一个变量为 false")
+if not (a and b):
+    print("5 - 变量 a 和 b 都为 false，或其中一个变量为 false")
 else:
-   print("5 - 变量 a 和 b 都为 true")
+    print("5 - 变量 a 和 b 都为 true")
 
-
-a ='first'
-b ='second'
-print(1 and a or b )
-print(0and a or b)
-a =''
-print(1and a or b) # a为假时，则出现问题
-print((1and[a]or[b])[0])# 安全用法，因为[a]不可能为假，至少有一个元素 否则就不是三元运算的效果
+a = 'first'
+b = 'second'
+print(1 and a or b)
+print(0 and a or b)
+a = ''
+print(1 and a or b)  # a为假时，则出现问题
+print((1 and [a] or [b])[0])  # 安全用法，因为[a]不可能为假，至少有一个元素 否则就不是三元运算的效果
+magic_token = "xx"
+DEFAULT_TOKEN_EXPIRE_TIME_MS = 123
+token_expire_time_ms = 0 if magic_token is not None else DEFAULT_TOKEN_EXPIRE_TIME_MS
+print(str(token_expire_time_ms))
 print("=========位运算===========")
 """
 运算符	描述	实例
@@ -124,25 +126,24 @@ print("=========位运算===========")
 <<	左移动运算符：运算数的各二进位全部左移若干位，由"<<"右边的数指定移动的位数，高位丢弃，低位补0。	a << 2 输出结果 240 ，二进制解释： 1111 0000
 >>	右移动运算符：把">>"左边的运算数的各二进位全部右移若干位，">>"右边的数指定移动的位数 	a >> 2 输出结果 15 ，二进制解释： 0000 1111
 """
-a = 60            # 60 = 0011 1100
-b = 13            # 13 = 0000 1101
+a = 60  # 60 = 0011 1100
+b = 13  # 13 = 0000 1101
 c = 0
 
-c = a & b;        # 12 = 0000 1100
+c = a & b;  # 12 = 0000 1100
 print("1 - c 的值为：", c)
 
-c = a | b;        # 61 = 0011 1101
+c = a | b;  # 61 = 0011 1101
 print("2 - c 的值为：", c)
 
-c = a ^ b;        # 49 = 0011 0001
+c = a ^ b;  # 49 = 0011 0001
 print("3 - c 的值为：", c)
 
-c = ~a;           # -61 = 1100 0011
+c = ~a;  # -61 = 1100 0011
 print("4 - c 的值为：", c)
 
-c = a << 2;       # 240 = 1111 0000 左移2位
+c = a << 2;  # 240 = 1111 0000 左移2位
 print("5 - c 的值为：", c)
 
-c = a >> 2;       # 15 = 0000 1111
+c = a >> 2;  # 15 = 0000 1111
 print("6 - c 的值为：", c)
-

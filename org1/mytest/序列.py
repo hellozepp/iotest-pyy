@@ -3,6 +3,9 @@ print("=======dict========")
 # 字典、set->有序 不能有重复元素
 zidian1 = {"1": 1, "a": 2, "1": 1, 3: 1, 2: 1, "b": "b", "test": [1]}
 print(zidian1)
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+keys = my_dict.keys()
+print(keys)  # 输出: dict_keys(['a', 'b', 'c'])
 # 取单个值
 print("-----取单个值-------")
 print(zidian1["1"])
@@ -80,8 +83,8 @@ print(str(liebiao))
 liebiao += ["aaaaaaa"]
 print(liebiao)
 print(liebiao[-1])
-#判空
-list =[[]]
+# 判空
+list = [[]]
 if list:
     print("pass")
 else:

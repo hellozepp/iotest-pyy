@@ -1,4 +1,6 @@
 from functools import reduce
+from typing import List
+
 print("============reduce==========")
 li=[1,2,3,4,5]
 print( reduce(lambda x,y:x+y, li) )
@@ -17,7 +19,7 @@ print(new_list)
 # Py2的童鞋不虚
 
 # 我们也可以把两个数组搞成一个单独的数组
-l2 = [4,5,6,7,8]
+l2: List[int] = [4,5,6,7,8]
 new_list = list(map(lambda x,y: x+y, l, l2))
 print(new_list)
 

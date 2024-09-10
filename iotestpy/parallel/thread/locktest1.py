@@ -1,18 +1,19 @@
 import threading
 import time
 
-#由于python没有真正意义的多核多线程调度，因此加不加锁没区别
-data=1
+data = 1
+
+
 def doSomthing1(lock):
     global data
     lock.acquire()
-    data=data+1
+    data = data + 1
     lock.release()
 
-lock=threading.Lock()
 
+lock = threading.Lock()
 
-for i in range(1,10):
+for i in range(1, 10):
     t1 = threading.Thread(target=doSomthing1, args=(lock,))
     t1.start()
 
@@ -37,16 +38,16 @@ print("1")
 # lock.release()
 
 print("2")
-lock = threading.Lock()    #Lock对象
+lock = threading.Lock()  # Lock对象
 print(lock.acquire(blocking=False))
-print(lock.acquire(blocking=False))  #产生了死琐。
+print(lock.acquire(blocking=False))  # 产生了死琐。
 lock.release()
 
 print("3")
 
-rLock = threading.RLock()  #RLock对象
+rLock = threading.RLock()  # RLock对象
 rLock.acquire()
-rLock.acquire()    #在同一线程内，程序不会堵塞。
+rLock.acquire()  # 在同一线程内，程序不会堵塞。
 # 可重入锁（RLock）的release()方法。首先它会去确认调用者是否是锁的拥有者。
 # 如果是的话，计数器减1；如果计数器为0，那么锁将会被释放，这时其他线程就可以去获取锁了。
 rLock.release()

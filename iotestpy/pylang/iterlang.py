@@ -1,43 +1,62 @@
-#coding=utf-8
+# coding=utf-8
 import random
 
-mylist=[2,2,3,4,5]
+mylist = [2, 2, 3, 4, 5]
 
 for i in mylist:
-    print(i,end=" ")
+    print(i, end=" ")
 
-it=iter(mylist)
+it = iter(mylist)
 print(next(it))
 
 for i in it:
-    print(i,end=" ")
+    print(i, end=" ")
+# 换行
+print()
+
+# until语法 0 1 2 3 4 5 6 7 8 9
+for i in range(10):
+    print(i, end=" ")
 
 print()
 print("===========================1=========================")
-#=====================================
+# =====================================
 
 import sys
+
 
 def mylistyield():
     for i in range(10):
         yield i
 
-f=mylistyield()
+
+f = mylistyield()
 for i in f:
-    print(i,end=" ")
+    print(i, end=" ")
 
 print()
 
-#说明：yield from iterable本质上等于for item in iterable: yield item的缩写版
+
+# 说明：yield from iterable本质上等于for item in iterable: yield item的缩写版
 def mylistyield1():
-        yield from range(10)
+    yield from range(10)
 
-f=mylistyield1()
+
+f = mylistyield1()
 for i in f:
-    print(i,end=" ")
+    print(i, end=" ")
 
-print()
+print("-==========seqparams============")
+seqparams = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+batch_size = 3
+for i in range(0, len(seqparams), batch_size):
+    batch = seqparams[i:i + batch_size]
+    # 打印batch_size个元素
+    print("i:" + str(i) + " batch:" + str(batch))
+
 print("==========================2==========================")
+
+
 # =====================================
 # generator函数和普通函数的区别
 # generator函数包含一个以上的yield声明
@@ -55,14 +74,16 @@ def myiteryield():
     print("第三次next")
     yield 3
 
+
 def myret():
     print("不需要next")
     return 1
 
-var=myret();
+
+var = myret();
 print(var)
 
-print("-"*10)
+print("-" * 10)
 
 list2 = myiteryield()
 print(list2)
@@ -71,25 +92,25 @@ print(type(list2))
 for l in list2:
     print(l)
 
-print("-"*10)
+print("-" * 10)
 
 for i in myiteryield():
     print(i)
 
-
-
 print("====================================3=========================================")
+
+
 # =====================================
 
 def func(n):
     for i in range(0, n):
-        print("*"*50)
+        print("*" * 50)
         arg = yield i
         print('funcyield:', arg)
 
 
 f = func(10)
-i=100
+i = 100
 while True:
     try:
         print('mainnext:', next(f))
@@ -97,41 +118,52 @@ while True:
         # 但是等到下一个yield到来的时候f.send返回值是yield的值，但是没有却没有东西可以send出去了
         # 所以相当与f.send(NULL)
         print('mainsend:', f.send(i))
-        i+=1
-        print("+"*50)
+        i += 1
+        print("+" * 50)
     except StopIteration as e:
         # e.with_traceback()
         break;
 
-
 print("====================================4=========================================")
+
+
 # =====================================
 
 
 def product():
     while True:
         print("开始生产")
-        data=random.randint(0,9)
-        print("生产者生产了"+str(data))
+        data = random.randint(0, 9)
+        print("生产者生产了" + str(data))
         yield data
+
 
 def consumer():
     while True:
         print("开始消费")
-        data=yield
-        print("消费了"+str(data))
+        data = yield
+        print("消费了" + str(data))
 
-def cleck(jobs,product,consumer):
-    p=product()
+
+def cleck(jobs, product, consumer):
+    p = product()
     print("11111111111")
-    c=consumer()
+    c = consumer()
     print("22222222222222")
     next(c)
     print("3333333333")
     for i in range(jobs):
-        data=next(p)
-        print("44444444444:"+str(data))
+        data = next(p)
+        print("44444444444:" + str(data))
         c.send(data)
         print("55555555555")
 
-cleck(3,product,consumer)
+
+cleck(3, product, consumer)
+
+print("====================================5=========================================")
+batch = 3
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for i in range(0, 10, batch):
+    # 当切片超出范围时，不会报错，因为i + batch > len(list)时，切片会自动截取到len(list)
+    print(list[i:i + batch])
