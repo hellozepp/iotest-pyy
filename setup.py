@@ -18,6 +18,16 @@ dependencies = [
     "APScheduler >= 3.10.4",
     "mock",
     "simplejson",
+    "backports.zoneinfo>=0.2.1;python_version<'3.9'",
+    "sanic",
+    "flask",
+    "sqlglot",
+    "fastapi==0.103.1",
+    "uvicorn==0.23.2",
+    "gunicorn",
+    "numpy~=1.24.4", # gunicorn needs numpy
+    "tzlocal",
+    "pytest"
 ]
 
 setup(

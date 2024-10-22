@@ -5,6 +5,9 @@ class Cls(object):
         return object.__new__(clazz)
 
     def __init__(self):
+        """
+        Python 不支持像某些其他编程语言（如 C++ 或 Java）那样通过定义多个构造函数来实现方法重载。然而，你可以通过使用默认参数或可变参数来实现类似的效果。
+        """
         # 加下划线就不能外部访问了
         self.__a = 0
         self.a = 0

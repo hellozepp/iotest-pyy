@@ -2,6 +2,8 @@
 import random
 from datetime import date
 
+from numpy import float32, float64
+
 intv = 1
 floatv = 1.1
 strv = "19"
@@ -13,10 +15,20 @@ print(hex(10))
 
 print(random.randint(20, 50))  # 生成20-50之间的随机数 20 <= n <= 50
 # =====================================================
-print("=========================1===========================")
+print("=========================float===========================")
 d1 = 0.1
 d2 = 0.2
 print(d1 + d2)
+
+# 创建单精度浮点数
+single_precision_number = float32(123.456)
+print(single_precision_number)
+single_precision_number = float32(1.2000000476837158)
+print(single_precision_number)
+# 创建双精度浮点数
+double_precision_number = float64(789.123456789)
+print(double_precision_number)
+
 from decimal import Decimal
 
 d3 = Decimal('0.1') / Decimal('0.3')
