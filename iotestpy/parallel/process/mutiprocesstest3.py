@@ -1,6 +1,7 @@
 from multiprocessing import Process, Manager
 
-# Server process manager比 shared memory 更灵活，因为它可以支持任意的对象类型。
+
+# Server process manager 比 shared memory 更灵活，因为它可以支持任意的对象类型。
 # 另外，一个单独的manager可以通过进程在网络上不同的计算机之间共享，不过他比shared memory要慢。
 
 # 由Manager()返回的manager提供list, dict, Namespace, Lock, RLock, Semaphore, BoundedSemaphore,

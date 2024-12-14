@@ -4,8 +4,6 @@ from functools import reduce
 
 
 #函数在被调用修改引用会同时修改外部该属性的引用值
-
-
 # lambda
 foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
 print(x for x in foo if x % 3 == 0)
@@ -14,16 +12,23 @@ print([x for x in range(10)])#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 print([x * 2 + 10 for x in foo])
 print(reduce(lambda x, y: x + y, foo))
 
-# 可写函数说明
-def changeme(mylist):
+
+# list、tuple、dict、set 等作为函数参数传递时，传递的是引用，所以在函数内部对这些对象的修改会影响到函数外部的对象。
+# 但是如果在函数内部对这些对象重新赋值，就会改变这些对象的引用，从而不会影响到函数外部的对象。
+# bool、int、float、str、tuple、frozenset 等作为函数参数传递时，传递的是值，所以在函数内部对这些对象的修改不会影响到函数外部的对象。
+def changeme(mylist, flag):
+    # 函数说明
     "修改传入的列表"
+    flag = ~flag
     mylist.append([1, 2, 3, 4]);
     print("函数内取值: ", mylist)
     return
+
+
 # 调用changeme函数
 mylist = [10, 20, 30];
-changeme(mylist);
-print("函数外取值: ", mylist)
+changeme(mylist, myflag := True)
+print(f"函数外取值: {mylist}, {myflag}")
 
 #参数名可以不一致
 # 可写函数说明

@@ -2,13 +2,14 @@ import subprocess
 import json
 
 # Define the JSON data
+# 加载sql文件
+sql = r"SELECT JSONExtractArrayRaw('{\"a\": \"hello\", \"b\": [-100, 200.0, \"hello\"]}', 'b')"
+# with open('./test.sql', 'r') as f:
+#     sql = f.read()
 data = {
-    "sql": r"SELECT JSONExtractArrayRaw('{\"a\": \"hello\", \"b\": [-100, 200.0, \"hello\"]}', 'b')",
-    "read_dialect": "starrocks",
-    "job_id": "",
-    "conf": {
-        "string_escape": "mysql"
-    }
+    "sql": sql,
+    "read_dialect": "clickhouse",
+    "job_id": "111"
 }
 
 # Convert the JSON data to a string
@@ -21,11 +22,12 @@ with open('data.json', 'w') as f:
 # Define the wrk command
 wrk_command = [
     'wrk',
-    '-t20',  # 20 threads
-    '-d300s',  # duration of 120 seconds
-    '-c500',  # 500 connections
+    '-t7',  # 7 threads
+    '-d1200s',  # duration of 120 seconds
+    '-c200',  # -c 表示并发数
+    '--timeout=30s',  #
     '-s', 'post.lua',  # Lua script for POST request
-    'http://127.0.0.1:8532/api/v1/transpile'
+    'http://127.0.0.1:8530/api/v1/transpile'
 ]
 
 # Define the Lua script for the POST request，转译json_data中的单引号

@@ -6,6 +6,8 @@ class Person:
 
     def xxx(self):
         print(self.id)
+    #当y为字符串类型时，repr(y)的结果就是“正式”的字符串表示，而str(y)的结果则是“非正式”的。str()能够让我们最快速了解到对象的内容，可读性较高。
+    #__str__是可读的，__repr__的目标是明确的
 
     def __str__(self):
         return "str id: "+str(self.id)+" name: "+self.name

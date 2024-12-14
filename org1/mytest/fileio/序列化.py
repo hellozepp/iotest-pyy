@@ -26,3 +26,5 @@ print(str)
 
 # 调用json的loads函数进行反序列化处理
 d2 = json.loads(str)
+
+jsonArr = [{'name': '小王', 'age': 20, 'score': 80}, {'name': '小李', 'age': 22, 'score': 90}]

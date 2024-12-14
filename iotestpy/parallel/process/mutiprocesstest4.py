@@ -1,4 +1,4 @@
-from  multiprocessing import Pool
+from multiprocessing import Pool
 import time
 
 
@@ -20,12 +20,12 @@ print("=======================================================================")
 # apply_async
 def f1(i):
     time.sleep(0.5)
-    print("原始值："+str(i))
+    print("原始值：" + str(i))
     return i + 100
 
 
 def f2(arg):
-    print("返回值："+str(arg))
+    print("返回值：" + str(arg))
 
 
 if __name__ == "__main__":

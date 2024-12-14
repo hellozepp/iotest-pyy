@@ -1,6 +1,9 @@
 from multiprocessing import Array, Value, Process,Queue
+# 进程之间的共享状态
+# 1. Shared memory
+# 2. Server process
 
-# 数据可以用Value或Array存储在一个共享内存地图里
+# 数据可以用Value或Array存储在一个共享内存map里
 import time
 
 
