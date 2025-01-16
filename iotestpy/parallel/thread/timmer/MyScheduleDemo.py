@@ -13,6 +13,7 @@ class MyScheduler:
     @staticmethod
     def __schedule_func(func, args=(), sec=0, minutes=0, hour=0, day=0):
         while True:
+            # 缺点：sleep是一个阻塞函数，只能执行固定间隔时间的任务，无法完成定时任务（在sleep的这一段时间，啥都不能做）
             time.sleep(day * 86400 + hour * 3600 + minutes * 60 + sec)
             func(*args)
 

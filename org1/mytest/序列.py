@@ -1,7 +1,28 @@
 # coding=utf-8
+from collections import OrderedDict
 print("=======dict========")
-# 字典、set->有序 不能有重复元素
-zidian1 = {"1": 1, "a": 2, "1": 1, 3: 1, 2: 1, "b": "b", "test": [1]}
+# 字典、set, 可以看见，遍历一个普通字典
+my_dict = dict()
+my_dict["name"] = "zhangsan"
+my_dict["age"] = 18
+my_dict["girl"] = "Tailand"
+my_dict["money"] = 80
+my_dict["hourse"] = None
+
+for key, value in my_dict.items():
+    print(key, value)
+print("------OrderedDict------")
+my_dict = OrderedDict()
+my_dict["name"] = "zhangsan"
+my_dict["age"] = 18
+my_dict["girl"] = "Tailand"
+my_dict["money"] = 80
+my_dict["hourse"] = None
+
+for key, value in my_dict.items():
+    print(key, value)
+print("-----整体打印-------")
+zidian1 = {"1": 1, "a": 3, "1": 1, 3: 1, 2: 1, "b": "b", "test": [1]}
 print(zidian1)
 my_dict = {'a': 1, 'b': 2, 'c': 3}
 keys = my_dict.keys()
@@ -93,10 +114,29 @@ else:
 list = [1, 2, a1]
 print(a2 in list)
 
+print("=======判断 list = [] 是否是false========")
 list = []
 print(len(list))
-list = None
+if not list:
+    print("list is null")
+else:
+    print("list is not null")
+# list = None
 # print(len(list)) #error
+
+print("=======list进行浅拷贝========")
+list = [1, 2, 3, 4, 5]
+list1 = list.copy()
+list.clear()
+print(list1)
+
+print("=======list进行深拷贝========")
+list = [1, 2, 3, 4, 5]
+import copy
+
+list1 = copy.deepcopy(list)
+list.clear()
+print(list1)
 print("=======tuple是只读序列========")
 # tuple是只读序列
 tuple = ("这是", "只读", zidian1)
@@ -251,3 +291,14 @@ print(a, b, c, d)
 print("\n")
 s.update([1, 2, 4, 6, 7, 8])
 print(s)
+print("==========有序 OrderedDict===============")
+# 使用键值对列表初始化有序字典
+od = OrderedDict([('b', 1), ('c', 2), ('d', 3)])
+# 添加元素
+od['a'] = 4
+od = OrderedDict(sorted(od.items(), key=lambda t: t[0]))
+
+# 访问元素
+print(od['a'])  # 输出: 1
+
+print(od)

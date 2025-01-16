@@ -1,6 +1,8 @@
 #coding= utf-8
 #Python Number(数字)
 # python包含 6 中内建的序列，包括列表、元组、字符串、Unicode字符串、buffer对象和xrange对象。
+import sys
+
 a = 3
 del a
 # print a
@@ -90,3 +92,6 @@ print(res)
 a= (float(1.3) / float(2.3) )
 print(float('%.2f' % a))
 
+
+####################float#########################
+print(sys.maxsize)

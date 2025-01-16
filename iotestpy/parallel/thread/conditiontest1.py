@@ -1,7 +1,7 @@
 import threading
 import time
 
-class Queue:
+class MyConditionQueue:
     def __init__(self):
         self.sth=-1
         self.cond=threading.Condition()
@@ -34,7 +34,7 @@ def consumer(queue):
         print("队列中取出{}".format(res))
         time.sleep(1)
 
-queue=Queue()
+queue=MyConditionQueue()
 p = threading.Thread(target=producer,args=(queue,))
 c = threading.Thread(target=consumer,args=(queue,))
 

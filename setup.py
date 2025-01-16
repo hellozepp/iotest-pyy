@@ -18,7 +18,8 @@ dependencies = [
     "gunicorn",
     "numpy~=1.24.4", # gunicorn needs numpy
     "tzlocal",
-    "pytest"
+    "pytest",
+    "locust",
 ]
 
 setup(

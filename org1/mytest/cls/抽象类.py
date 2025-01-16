@@ -73,11 +73,6 @@ def with_tx_and_retry(transaction_manager, consumer, isolation_level, retry_limi
             del tx_thread_local.tx
 
 
-import logging
-
-logger = logging.getLogger(__name__)
-
-
 class DataIntegrityViolationError(Exception):
     pass
 
@@ -102,6 +97,4 @@ def with_transaction(transaction_manager, consumer, isolation_level, before_comm
             # 模拟事务回滚
             if isinstance(e, DataIntegrityViolationError):
                 consumer.onError()
-            if e.message and "max_allowed_packet" in e.message:
-                raise ExceedMaxAllowedPacketError("Exceeded max allowed packet limit") from e
             raise PersistError("Persist messages failed") from e

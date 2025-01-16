@@ -3,7 +3,7 @@ from threading import Timer
 import time
 
 '''
-每个 10 秒打印当前时间。
+2 秒后打印当前时间。
 '''
 
 
@@ -13,7 +13,9 @@ def timedTask():
     第二个参数: 要执行的任务, 即函数
     第三个参数: 调用函数的参数(tuple)
     '''
-    Timer(10, task, ()).start()
+    timer = Timer(2, task, ())
+    timer.daemon = True
+    timer.start()
 
 
 # 定时任务
@@ -23,5 +25,5 @@ def task():
 
 if __name__ == '__main__':
     timedTask()
-    print(time.time())
-    time.sleep(500)
+    print("main thread is done")
+    time.sleep(10)

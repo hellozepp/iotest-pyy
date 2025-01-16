@@ -25,6 +25,7 @@ def timedTask():
     第三个参数: 调用函数的参数(tuple)
     '''
     c = counter()
+    # 缺点：threading 模块中的 Timer 是一个非阻塞函数，无法完成定时任务
     _thread = Timer(1, call, (c,))
     _thread.daemon = True
     _thread.start()
